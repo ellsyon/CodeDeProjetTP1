@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<module name="Checker">
+    <module name="TreeWalker">
+        <!-- Enforce naming conventions -->
+        <module name="UpperEll"/>
+        <module name="NeedBraces"/>
+        <module name="UnusedImports"/>
+
+        <!-- Check indentation -->
+        <module name="Indentation">
+            <property name="basicOffset" value="4"/>
+            <property name="tabWidth" value="4"/>
+        </module>
+
+        <!-- Check for trailing whitespace -->
+        <module name="TrailingWhitespace"/>
+    </module>
+</module>

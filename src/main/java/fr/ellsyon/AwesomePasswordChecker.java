@@ -1,4 +1,4 @@
-package fr.ellsyon.passwordutility;
+package fr.ellsyon;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,7 +25,7 @@ public class AwesomePasswordChecker {
     }
     return instance;
   }
-  
+
   public static AwesomePasswordChecker getInstance() throws IOException {
     if (instance == null) {
       InputStream is = AwesomePasswordChecker.class.getClassLoader().getResourceAsStream("cluster_centers_HAC_aff.csv");
@@ -33,14 +33,14 @@ public class AwesomePasswordChecker {
     }
       return instance;
   }
-      
+
   private AwesomePasswordChecker(InputStream is) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(is));
   String line;
     while((line = br.readLine()) != null){
       String[] values = line.split(";");
       double[] center = new double[values.length];
-      
+
       for (int i = 0; i < values.length; ++i) {
         center[i] = Double.parseDouble(values[i]);
       }
@@ -50,13 +50,13 @@ public class AwesomePasswordChecker {
   }
 
   public int[] maskAff(String password) {
-    int[] maskArray = new int[28]; 
+    int[] maskArray = new int[28];
     int limit = Math.min(password.length(), 28);
-    
+
     for (int i = 0; i < limit; ++i) {
           char c = password.charAt(i);
       switch (c) {
-        case 'e': 
+        case 'e':
         case 's':
         case 'a':
         case 'i':
