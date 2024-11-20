@@ -15,9 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <junit.version>4.13.2</junit.version>
-
-        <checkstyle.version>3.6.0</checkstyle.version>
-
+        <checkstyle.version>2.17</checkstyle.version>
     </properties>
 
     <!-- Dependencies -->
@@ -31,44 +29,19 @@
         </dependency>
     </dependencies>
 
-    <!-- Build Plugins -->
-    <reporting>
+
+    <build>
         <plugins>
-            <!-- Checkstyle plugin -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>${checkstyle.version}</version>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                    <excludes>biz/futureware/mantisconnect/*</excludes>
+
                 </configuration>
             </plugin>
-        </plugins>
-    </reporting>
-
-    <build>
-        <plugins>
-
-            <!-- Package javadoc -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.6.3</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <excludePackageNames>biz.*</excludePackageNames>
-                </configuration>
-            </plugin>
-
-
         </plugins>
     </build>
 
